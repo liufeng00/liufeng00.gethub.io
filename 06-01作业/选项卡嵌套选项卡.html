@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.cont{
+				width: 1020px;
+				margin: 0 auto;
+			}
+			#list{
+				width: 200px;
+				float: left;
+			}
+			#list li{
+				height: 79px;
+				background: #D8D8D8;
+				border: 1px solid #fff;
+			}
+			#list li:hover{
+				cursor: pointer;
+				background: #fff;
+			}
+			#list p{
+				text-align: center;
+				font-size: 20px;
+				line-height: 79px;
+			}
+			.right-cont{
+				width: 820px;
+				float: right;
+				position: relative;
+			}
+			.right-cont img{
+				width: 100%;
+				height: 100%;
+			}
+			.right-cont ul{
+				width: 820px;
+				position: absolute;
+				bottom: 7px;
+				left: 0;
+			}
+			.right-cont li{
+				height: 30px;
+				margin-right: 3px;
+				background: rgba(0,0,0,0.5);
+				float: left;
+				font-size: 10px;
+				color: #fff;
+				text-align: center;
+				line-height: 30px;
+			}
+			.right-cont li:hover{
+				cursor: pointer;
+				background: hotpink;
+			}
+			.tabcont{
+				width: 820px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.tab2,.tab3,.tab4{
+				display: none;
+			}
+			.tab1 li{
+				width: 32.90%;
+			}
+			.tab2 li{
+				width: 24%;
+			}
+			.tab3 li{
+				width: 19%;
+			}
+			.tab4 li{
+				width: 24%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<ul id="list">
+				<li>
+					<p>最热团购</p>
+				</li>
+				<li>
+					<p>商城特惠</p>
+				</li>
+				<li>
+					<p>名品推荐</p>
+				</li>
+				<li>
+					<p>缤纷活动</p>
+				</li>
+			</ul>
+			<div id="right-cont" class="right-cont">
+				<div class="tab tab1">
+					<img class="pic" src="image/t1.jpg"/>
+					<ul>
+						<li>雅思兰黛完美维护唇膏（蓝色花纹管管体）3.6g</li>
+						<li>雅诗兰黛花样唇膏01#3.8g</li>
+						<li>倩碧卓越润肤乳125ml</li>
+					</ul>
+				</div>
+				<div class="tab tab2">
+					<img class="pic" src="image/t4.jpg"/>
+					<ul>
+						<li>肌研满150减30</li>
+						<li>高性价比低单价商品2.8折起</li>
+						<li>贝德满228减128</li>
+						<li>吃出健康美态2.8折起</li>
+					</ul>
+				</div>
+				<div class="tab tab3">
+					<img class="pic" src="image/t8.jpg"/>
+					<ul>
+						<li>艾格利克全场2.8折起</li>
+						<li>全场1.4折起</li>
+						<li>伊米妮全场1折起</li>
+						<li>小熊电器全场1折起</li>
+						<li>被提卡全场1折起</li>
+					</ul>
+				</div>
+				<div class="tab tab4">
+					<img class="pic" src="image/t13.jpg"/>
+					<ul>
+						<li>万达大歌星全场欢唱券</li>
+						<li>高丝娜蔻眼霜</li>
+						<li>财付通下单立减</li>
+						<li>芙优润天蚕丝面膜</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oList=document.getElementById('list');
+		var aLi=oList.getElementsByTagName('li');
+		var aPic=document.getElementsByClassName('pic');
+		var oRC=document.getElementById('right-cont');
+		
+		var aTab=oRC.getElementsByTagName('div');
+		var aLi2=oRC.getElementsByTagName('li');
+		var arrImg=[
+			['image/t1.jpg','image/t2.jpg','image/t3.jpg'],
+			['image/t4.jpg','image/t5.jpg','image/t6.jpg','image/t7.jpg'],
+			['image/t8.jpg','image/t9.jpg','image/t10.jpg','image/t11.jpg','image/t12.jpg'],
+			['image/t13.jpg','image/t14.jpg','image/t15.jpg','image/t16.jpg']
+		]
+		var num=0;
+		var Len=aLi.length;
+		var Length=aTab.length;
+		for(var i=0;i<Len;i++){
+			aLi[i].num=i;
+			aLi[i].onmouseover=function(){
+				for (var i=0;i<Length;i++){
+					aTab[i].style.display='none';
+				}
+				aTab[this.num].style.display='block';
+				var z = this.num;
+				for (var k=0;k<aTab[this.num].getElementsByTagName('li').length;k++) {
+					aTab[z].getElementsByTagName('li')[k].index = k;
+					aTab[z].getElementsByTagName('li')[k].onmouseover = function () {
+						aPic[z].src = arrImg[z][this.index];
+					}
+				}
+			}
+		}
+	</script>
+</html>

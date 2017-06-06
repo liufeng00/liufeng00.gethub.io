@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			h3 {
+				margin-left: 5px;
+				border-bottom: 2px solid#000;
+				width: 630px;
+				margin-top: 50px;
+			}
+			
+			.list {
+				width: 630px;
+			}
+			
+			.list li {
+				float: left;
+				margin-left: 5px;
+				margin-top: 10px;
+			}
+			
+			.list img {
+				width: 100px;
+				height: 100px;
+			}
+			.text {
+				width: 150px;
+				background: #fff;
+				display: none;
+				position: absolute;
+				top:15px;
+				left: 80px;
+			}
+			
+			.text h2 {
+				background: #7DA0FC;
+				font-size: 18px;
+			}
+			
+			.text p {
+				font-size: 16px;
+			}
+			
+			.text span {
+				display: inline-block;
+				height: 15px;
+				background: #FFC0CB;
+				width: 150px;
+			}
+			
+			.text em {
+				display: inline-block;
+				width: 13px;
+				height: 13px;
+				background: #FFC0CB;
+				position: absolute;
+				bottom: -2px;
+				left: 20px;
+				transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<h3>最新上架</h3>
+		<div class="text">
+			<!--<h2>搜狐汽车图库</h2>
+			<p>介绍性文字</p>
+			<span></span>
+			<em></em>-->
+		</div>
+		<ul class="list">
+			<!--<li>
+				<img src="image/a4.jpg"/>
+				<h4>娱乐</h4>
+				<p>新闻类</p>
+			</li>-->
+		</ul>
+		
+	</body>
+	<script src="my-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aList = document.getElementsByClassName('list')[0];
+		var aLi = aList.getElementsByTagName('li');
+		var Len = aLi.length;
+		var arrLi = [{
+					'imgSrc': 'image/a4.jpg',
+					'text': '娱乐',
+					'textp': '新闻类'
+				},
+
+				{
+					'imgSrc': 'image/a3.jpg',
+					'text': '封面人物',
+					'textp': '人物类'
+				},
+
+				{
+					'imgSrc': 'image/a2.jpg',
+					'text': '海岛大亨',
+					'textp': '游戏类'
+				},
+
+				{
+					'imgSrc': 'image/a1.jpg',
+					'text': '酷客天气',
+					'textp': '天气类'
+				},
+
+				{
+					'imgSrc': 'image/a5.jpg',
+					'text': '娱乐',
+					'textp': '新闻类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '封面人物',
+					'textp': '人物类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '玩耍',
+					'textp': '游戏类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '海边',
+					'textp': '度假类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '下棋',
+					'textp': '休闲类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '八卦',
+					'textp': '闲聊类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '下午茶',
+					'textp': '休闲类'
+				},
+
+				{
+					'imgSrc': 'image/a4.jpg',
+					'text': '时尚',
+					'textp': '时尚类'
+				}
+			]
+			//自动生成li
+		var arrLen = arrLi.length;
+		var str = '';
+		for(var i = 0; i < arrLen; i++) {
+			str += '<li>' +
+				'<img src="' + arrLi[i].imgSrc + '">' +
+				'<h4>' + arrLi[i].text + '</h4>' +
+				'<p>' + arrLi[i].textp + '</p>'
+			'</li>'
+		}
+		aList.innerHTML = str;
+		
+		//自动生成文字
+		var oText = document.getElementsByClassName('text')[0];
+		var arrText = [{
+			'h2': '搜狐汽车图库',
+			'p': '介绍性文字',
+			'span': '',
+			'em': '.'
+		}]
+		var textLen = arrText.length;
+		var str = '';
+		for(var i = 0; i < textLen; i++) {
+			str += '<li>' +
+				'<h2>' + arrText[i].h2 + '</h2>' +
+				'<p>' + arrText[i].p + '</p>' +
+				'<span>' + arrText[i].span + '</span>'+
+				'<em>' + arrText[i].em + '</em>'
+			'</li>'
+		}
+		oText.innerHTML = str;
+		//当鼠标移动到图片上
+		for (var i=0;i<arrLen;i++) {
+			aLi[i].index=i;
+			aLi[i].onmouseover=function(){
+				oText.style.display='block';
+//				if (i<5) {
+//					oText.style.left=arrLen/6*105+'px';
+//				} else{
+//					
+//				}
+			}
+			aLi[i].onmouseout=function(){
+				oText.style.display='none';
+			}
+			
+		}
+	</script>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			img{
+				width: 100%;
+			}
+			#cont{
+				position: relative;
+			}
+			#list{
+				position: absolute;
+				top: 50%;
+				left: 40%;
+			}
+			#list li{
+				width: 150px;
+				height: 40px;
+				background: #6495ED;
+				border-radius: 5px;
+				color: #fff;
+				text-align: center;
+				line-height: 40px;
+				margin-left: 5px;
+				float: left;
+				position: relative;
+			}
+			#list li ul{
+				width: 150px;
+				height: 40px;
+				background: #6495ED;
+				border-radius: 5px;
+				color: #fff;
+				text-align: center;
+				line-height: 40px;
+				position: absolute;
+				display: none;
+			}
+			.alipay{
+				top: 40px;
+			}
+			.mouth{
+				bottom: 40px;
+			}
+			/*#mnue{    padding: 10px;
+    background: rgb(100, 149, 237) !important;}*/
+			.alipay,.mouth{margin-left: 0 !important;}
+			.alipay{border-top: 1px solid #fff;top: 41px; border-radius: 0 !important;}
+		</style>
+	</head>
+	<body>
+		<div id="cont">
+			<img id="pic" src="image/a2.jpg"/>
+			<ul id="list">
+				<li>我是合伙伙伴</li>
+				<li id="center">
+					<p id="business">我是商家用户</p>
+					<ul id="mnue">
+						<li class="alipay">我是支付宝商家</li>
+						<li class="mouth">我是口碑商家</li>
+					</ul>
+				</li>
+				<li>我是个人用户</li>
+			</ul>
+		</div>
+	</body>
+	<script src="../jspublic/my-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//实现图片轮播
+		var arrImg=['image/a1.jpg','image/a2.jpg','image/a3.jpg'];
+		var num=0;
+		function change(){
+			if (num<arrImg.length-1) {
+				num=num+1;
+			} else{
+				num=0;
+			}
+			$('pic').src=arrImg[num];
+		}
+		setInterval(change,2000);
+		// 实现鼠标移动
+		$('center').onmouseover=function(){
+			$('business').style.display='none';
+			$('mnue').style.display='block';
+			$('mnue').style.marginTop='-20px';
+		}
+		$('center').onmouseout=function(){
+			$('business').style.display='block';
+			$('mnue').style.display='none';
+		}
+	</script>
+</html>

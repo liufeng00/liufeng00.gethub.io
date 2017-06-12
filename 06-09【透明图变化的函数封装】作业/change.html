@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			#cont {
+				width: 300px;
+				height: 300px;
+				overflow: hidden;
+				border: 1px solid #e5e5e5;
+				margin-top: 50px;
+			}
+			#all{
+				width: 600px;
+				height: 100%;
+				position: relative;
+			}
+			.pic{
+				float: left;
+				width: 300px;
+				height: 300px;
+			}
+			.pic img {
+				width:300px;
+				height: 100%;
+			}
+			.text {
+				width: 300px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				color: #fff;
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+				background: rgba(0, 0, 0, 0.5);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="cont">
+			<div id="all">
+				<div class="pic">
+					<img src="image/a4.jpg" />
+				</div>
+				<div class="pic">
+					<img src="image/a5.jpg" />
+				</div>
+				<div class="text">美味可口的美食</div>
+			</div>
+		</div>
+	</body>
+	<script src="../jspublic/my-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aPic=$('all').getElementsByClassName('pic');
+		var oText=$('all').getElementsByClassName('text')[0];
+		var num = 0;
+		var arrImg = ['image/a4.jpg', 'image/a5.jpg', 'image/a3.jpg', 'image/a2.jpg'];
+		var arrText = ['美味可口的美食', '清凉一夏冰淇淋', '冰淇淋松饼', '新鲜果蔬'];
+		function aImg(n){
+			return aPic[n].getElementsByTagName('img')[0];
+		}
+//		oText.innerHTML=arrText[0];
+//		Go(oText,'bottom',5,0,function(){
+//			setTimeout(function(){
+//				oText.style.bottom=0+'px';
+//			},2500)
+//		});
+		setInterval(function(){
+			Go($('all'),'marginLeft',-20,-300);
+			num = (++num) % 4;//先赋值再加
+			setTimeout(function(){
+				oText.style.bottom=0+'px';
+				aImg(0).src=arrImg[num];
+				(num+1)<4?aImg(1).src=arrImg[num+1]:aImg(1).src=arrImg[0];
+				$('all').style.marginLeft=0;
+				oText.innerHTML=arrText[num];
+				Go(oText,'bottom',5,0,function(){
+					setTimeout(function(){
+						oText.style.bottom=0+'px';
+					},2500)
+				})
+			},1000)
+		},3000)
+//		
+	</script>
+
+</html>

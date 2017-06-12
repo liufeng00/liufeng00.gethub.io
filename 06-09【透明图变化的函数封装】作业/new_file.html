@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			#cont {
+				margin: 50px;
+				width: 240px;
+				height: 310px;
+				border: 1px solid gainsboro;
+				overflow: hidden;
+			}
+			
+			#pic {
+				height: 100%;
+				width: 480px;
+				position: relative;
+			}
+			
+			.spic {
+				float: left;
+				height: 310px;
+				width: 240px;
+			}
+			
+			.spic img {
+				height: 100%;
+				width: 100%;
+			}
+			
+			.text {
+				width: 240px;
+				height: 30px;
+				position: absolute;
+				left: 0;
+				bottom: -30px;
+				background: rgba(1, 1, 1, 0.5);
+				text-align: center;
+				color: white;
+				line-height: 30px;
+				font-size: 16px;
+				z-index: ;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="cont">
+			<div id="pic">
+				<div class="spic">
+					<img src="image/a4.jpg" />
+				</div>
+				<div class="spic">
+					<img src="image/a5.jpg" />
+				</div>
+				<div class="text">
+					你好
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../jspublic/my-jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var aPic = $('pic').getElementsByClassName('spic');
+		var oText = $('pic').getElementsByClassName('text')[0];
+		var num = 0;
+		var arrImg = ['image/a4.jpg', 'image/a3.jpg', 'image/a2.jpg', 'image/a1.jpg', 'image/a5.jpg'];
+		var arrText = ['德赫亚', '拜利', '琼斯', '罗霍', '博格巴'];
+		function aImg(n) {
+			return aPic[n].getElementsByTagName('img')[0];
+		}
+		oText.innerHTML = arrText[0];
+		Go(oText, 'bottom', 5, 0, function() {
+			setTimeout(function() {
+				oText.style.bottom = -30 + 'px';
+			}, 2700)
+		});
+		setInterval(function() {
+			Go($('pic'), 'marginLeft', -20, -240);
+			num = (++num) % 5;
+			 setTimeout(function() {
+				oText.style.bottom = -30 + 'px';
+				aImg(0).src = arrImg[num];
+				(num + 1) < 5 ? aImg(1).src = arrImg[num + 1] : aImg(1).src = arrImg[0];
+				$('pic').style.marginLeft = 0;
+				oText.innerHTML = arrText[num];
+				Go(oText, 'bottom', 5, 0, function() {
+					setTimeout(function() {
+						oText.style.bottom = -30 + 'px';
+					}, 2300)
+				});
+			}, 500)
+		}, 3000)
+	</script>
+
+</html>

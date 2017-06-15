@@ -40,8 +40,35 @@ function Opacity(obj, state) {
 		var opa = parseFloat(getStyle(obj, 'opacity')) + state;
 		if(opa <= 0 || opa >= 1) {
 			state > 0 ? opa = 1 : opa = 0; //判断元素是否大于0，决定透明度是显示还是隐藏
+//			if(opa==0){
+//				obj.style.display='none';
+//			}
 			clearInterval(obj.changeOpacity);
 		}
 		obj.style.opacity = opa;
 	}, 100)
+}
+
+//抖动函数封装
+function shake(obj,attr,endFn){
+//	if(obj.s){
+		obj.s=false;
+		var posi=parseInt(getStyle(obj,attr));
+		var arr=[];
+		for (var i=20;i>=0;i-=2) {
+			arr.push(i,-i);
+		}
+		var num=0;
+		obj.shaketimer=setInterval(function(){
+			obj.style[attr]=posi+arr[num]+'px';
+			num++;
+			if(num>=arr.length){
+				clearInterval(obj.shaketimer);
+				obj.s=true;
+				if(endFn){
+					endFn();
+				}
+			}
+		},40)
+//	}
 }

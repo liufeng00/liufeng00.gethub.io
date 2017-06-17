@@ -85,7 +85,7 @@
 		$('begin').onmousedown=function(){
 			$('begin').value='游戏正在进行中.....';
 			//调用GO函数使其往下落并调用回调函数执行后面的动作
-			Go($('pic'),'top',5,330,cycle);
+			Go($('pic'),'top',10,330,cycle);
 		}
 		
 		//当点到图片时，清除定时器，得一分，图片路径为固定路径，
@@ -102,7 +102,7 @@
 				$('pic').style.top=-40+'px';
 				//left值在700之间随机移动
 				$('pic').style.left=Math.random()*700+'px';
-				Go($('pic'),'top',5,330,function(){
+				Go($('pic'),'top',10,330,function(){
 					No++;//图片到底失去一分
 					$('lose').innerHTML=No;//失去的分数等于
 					if ($('lose').innerHTML==5) {

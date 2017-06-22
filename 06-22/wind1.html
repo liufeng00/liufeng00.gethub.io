@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style type="text/css">
+		.cont{
+			width: 400px;
+			height: 400px;
+			position: relative;
+			overflow: hidden;
+		}
+		.trapezoidal{
+			width: 200px;
+			height: 200px;
+			background: palegoldenrod;
+			position: absolute;
+			bottom: -100px;
+			left: 100px;
+			-webkit-transform: rotate(45deg) skew(40deg,40deg);
+		}
+		.main{
+			width: 0;
+			border-width: 20px;
+			border-style: solid;
+			border-color: pink yellow pink yellow;
+			position: absolute;
+			top: 140px;
+			left: 50%;
+			margin-left: -20px;
+			transition: all 2s;
+		}
+		.cont:hover .main{
+			-webkit-transform: rotate(720deg);
+		}
+		.circle{
+			width: 0;
+			border-width: 20px;
+			border-color: pink paleturquoise pink paleturquoise;
+			border-style: solid;
+			border-radius: 50%;
+			position: absolute;
+			top: -20px;
+			left: 0;
+			margin-left: -20px;
+		}
+		.triangle{
+			width: 0;
+			height: 0;
+			border-width: 30px 80px 30px 80px;
+			border-style: solid;
+			border-color: hotpink transparent  transparent hotpink; 
+			position: absolute;
+			top: 0;
+			left: 0;
+			-webkit-transform-origin:left top; 
+		}
+		.triangle:nth-child(2){
+			-webkit-transform: rotate(90deg);
+			border-color: orange transparent  transparent orange;
+		}
+		.triangle:nth-child(3){
+			-webkit-transform: rotate(180deg);
+		}
+		.triangle:nth-child(4){
+			-webkit-transform: rotate(-90deg);
+			border-color: orange transparent  transparent orange;
+		}
+	</style>
+</head>
+<body>
+	<div class="cont">
+		<div class="trapezoidal"></div>
+		<div class="main">
+			<div class="triangle"></div>
+			<div class="triangle"></div>
+			<div class="triangle"></div>
+			<div class="triangle"></div>
+			<div class="circle"></div>
+		</div>
+	</div>
+</body>
+</html>

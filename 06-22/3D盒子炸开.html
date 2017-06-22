@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.bigbox{
+				width: 300px;
+				height: 300px;
+				position: relative;
+				margin: 100px;
+				border: 1px solid #ccc;
+				opacity: 0.5;
+				font-size: 50px;
+				color: #f00;
+				text-align: center;
+				line-height: 300px;
+				-webkit-transform-style: preserve-3d;
+				-webkit-perspective: 800px;
+				-webkit-transform-origin: center center 150px;
+				transition: all 10s;
+			}
+			/*.bigbox:hover{
+				-webkit-transform: rotateX(360deg) rotateY(360deg);
+			}*/
+			.bigbox div{
+				width: 300px;
+				height: 300px;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.smallbox{
+				width: 150px;
+				height: 150px;
+				border: 1px solid red;
+				position: absolute;
+				top: 175px;
+				left: 175px;
+			}
+			.smallbox div{
+				width: 150px;
+				height: 150px;
+				border: 1px solid aquamarine;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.bigleft{
+				background: url(img/pic1.jpg) no-repeat;
+				-webkit-transform-origin: left;
+				-webkit-transform: rotateY(-90deg);
+			}
+			.bigright{
+				background: url(img/pic2.jpg) no-repeat;
+				-webkit-transform-origin:right;
+				-webkit-transform: rotateY(90deg);
+			}
+			.bigtop{
+				background: url(img/pic3.jpg) no-repeat;
+				-webkit-transform-origin: top;
+				-webkit-transform: rotateX(90deg);
+			}
+			.bigbottom{
+				background: url(img/pic7.jpg) no-repeat;
+				-webkit-transform-origin:bottom;
+				-webkit-transform: rotateX(-90deg);
+			}
+			.bigfont{
+				background: url(img/pic10.jpg) no-repeat;
+				-webkit-transform: translateZ(300px);
+			}
+			.bigback{
+				background: url(img/pic5.jpg) no-repeat;
+				-webkit-transform: translateZ(0px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bigbox">
+			<div class="bigfont">前</div>
+			<div class="bigback">后</div>
+			<div class="bigleft">左</div>
+			<div class="bigright">右</div>
+			<div class="bigtop">上</div>
+			<div class="bigbottom">下</div>
+		</div>
+		<div class="smallbox">
+			<div class="smallfont">前</div>
+			<div class="smallback">后</div>
+			<div class="smallleft">左</div>
+			<div class="smallright">右</div>
+			<div class="smalltop">上</div>
+			<div class="smallbottom">下</div>
+		</div>
+	</body>
+</html>

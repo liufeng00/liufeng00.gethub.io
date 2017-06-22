@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.cont{
+				width: 400px;
+				height: 400px;
+				border: 1px solid red;
+				position: relative;
+				overflow: hidden;
+				
+			}
+			.trapezoidal{
+				width: 200px;
+				height: 200px;
+				background: peachpuff;
+				position: absolute;
+				bottom: -100px;
+				left: 100px;
+				-webkit-transform:rotate(45deg) skew(40deg,40deg) ;
+			}
+			.circle{
+				width: 0;
+				border-width: 20px;
+				border-style: solid;
+				border-radius: 50%;
+				border-color: pink paleturquoise;
+				position: absolute;
+				z-index: 10;
+				/*opacity: 0.6;*/
+				top:-20px;
+				left:-20px;
+			}
+			.inner{
+				width: 0;
+				border-width: 20px;
+				border-style: solid;
+				border-color: red blue red blue;
+				position: absolute;
+				top: 130px;
+				left: 50%;
+				margin-left: -20px;
+				transition: all 3s;
+			}
+			.cont:hover .inner{
+				-webkit-transform: rotate(800deg);
+			}
+			.triangle{
+				width: 0;
+				height: 0;
+				border-width: 30px 80px;
+				border-style: solid;
+				border-color: deeppink transparent transparent deeppink;
+				position: absolute;
+				top:0px;
+				left:0px;
+				-webkit-transform-origin: left top;
+			}
+			.triangle:nth-child(2){
+				-webkit-transform: rotate(180deg);
+			}
+			.triangle:nth-child(3){
+				-webkit-transform: rotate(90deg);
+				border-color: paleturquoise transparent  transparent paleturquoise;
+			}
+			.triangle:nth-child(4){
+				-webkit-transform: rotate(-90deg);
+				border-color: paleturquoise transparent  transparent paleturquoise;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="trapezoidal"></div>
+			<div class="inner">
+				<div class="circle"></div>
+				<div class="triangle"></div>
+				<div class="triangle"></div>
+				<div class="triangle"></div>
+				<div class="triangle"></div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				text-align: center;
+				line-height: 200px;
+			}
+			.cont div{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.cont{
+				margin: 200px;
+				position: relative;
+				-webkit-transform-style:preserve-3d;
+				-webkit-perspective: 4000px;
+				-webkit-transform-origin: center center 100px; 
+				transition: all 2s;
+				opacity: 0.5;
+			}
+			.cont:hover{
+				-webkit-transform:rotateX(360deg) rotateY(360deg);
+			}
+			.left{
+				-webkit-transform-origin: left;
+				background: paleturquoise;
+				-webkit-transform: rotateY(-90deg);
+			}
+			.right{
+				-webkit-transform-origin: right;
+				background: palegreen;
+				-webkit-transform: rotateY(90deg);
+			}
+			.top{
+				-webkit-transform-origin: top;
+				background:pink;
+				-webkit-transform: rotateX(90deg);
+			}
+			.bottom{
+				-webkit-transform-origin: bottom;
+				background: hotpink;
+				-webkit-transform: rotateX(-90deg);
+			}
+			.font{
+				background: deeppink;
+				-webkit-transform: translateZ(200px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="cont">
+			<div class="font">前</div>
+			<div class="back">后</div>
+			<div class="left">左</div>
+			<div class="right">右</div>
+			<div class="top">上</div>
+			<div class="bottom">下</div>
+		</div>
+	</body>
+</html>

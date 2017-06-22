@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.circle{
+				width: 60px;
+				height: 60px;
+				background: hotpink;
+				border-radius: 50%;
+				-webkit-animation: move 10s 2s ease-in-out alternate infinite;
+			}
+			@-webkit-keyframes move{
+				0%{
+					background: hotpink;
+					margin-left: 0;
+					margin-top: 0;
+				}
+				10%{
+					background: paleturquoise;
+					margin-top: 500px;
+					margin-left: 100px;
+				}
+				20%{
+					background: palegoldenrod;
+					margin-left: 150px;
+					margin-top: 0px;
+				}
+				30%{
+					background: peachpuff;
+					margin-top: 500px;
+					margin-left: 200px;
+				}
+				40%{
+					background: powderblue;
+					margin-left: 500px;
+					margin-top: 0;
+				}
+				50%{
+					background: honeydew;
+					margin-top: 400px;
+					margin-left: 300px;
+				}
+				60%{
+					background: chartreuse;
+					margin-left: 350px;
+					margin-top: 50px;
+				}
+				70%{
+					background: orange;
+					margin-top: 500px;
+					margin-left: 400px;
+				}
+				80%{
+					background: orchid;
+					margin-top: 80px;
+					margin-left: 450px;
+				}
+				90%{
+					background: aqua;
+					margin-left: 600px;
+					margin-top: 450px;
+				}
+				100%{
+					background: hotpink;
+					margin-top: 150px;
+					margin-left: 400px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="circle"></div>
+	</body>
+</html>

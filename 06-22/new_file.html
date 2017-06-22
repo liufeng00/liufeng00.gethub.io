@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<style type="text/css">
+			.wrap {
+				position: relative;
+				width: 300px;
+				height: 300px;
+				margin: 200px auto;
+				perspective: 2000px;
+			}
+			
+			.wrap .bigger,
+			.wrap .small {
+				transform-style: preserve-3d;
+				transform: rotateY(60deg);
+				transform-origin: top;
+				transition: all 2s;
+			}
+			
+			.small {
+				animation: move 5s linear infinite;
+			}
+			
+			.bigger {
+				animation: move 5s linear infinite;
+			}
+			
+			.small div {
+				position: absolute;
+				top: 80px;
+				left: 80px;
+				width: 150px;
+				height: 150px;
+				transition: all 2s;
+				opacity: 0.7;
+			}
+			
+			.bigger li {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 298px;
+				height: 298px;
+				border: 1px solid #fff;
+				transition: all 2s;
+			}
+			
+			.small div:nth-child(1) {
+				background: url(img/pic1.jpg) no-repeat;
+				transform: translateZ(75px);
+			}
+			
+			.small div:nth-child(2) {
+				background: url(img/pic2.jpg) no-repeat;
+				transform: translateZ(-75px);
+			}
+			
+			.small div:nth-child(3) {
+				background: url(img/pic3.jpg) no-repeat;
+				transform: rotateY(90deg) translateZ(75px);
+			}
+			
+			.small div:nth-child(4) {
+				background: url(img/pic4.jpg) no-repeat;
+				transform: rotateY(-90deg) translateZ(75px);
+			}
+			
+			.small div:nth-child(5) {
+				background: url(img/pic5.jpg) no-repeat;
+				transform: rotateX(90deg) translateZ(75px);
+			}
+			
+			.small div:nth-child(6) {
+				background: url(img/pic6.jpg) no-repeat;
+				transform: rotateX(-90deg) translateZ(75px);
+			}
+			
+			.bigger li:nth-child(2) {
+				background: url(img/pic7.jpg) no-repeat;
+				transform: translateZ(150px);
+			}
+			
+			.bigger li:nth-child(3) {
+				background: url(img/pic8.jpg) no-repeat;
+				transform: translateZ(-150px);
+			}
+			
+			.bigger li:nth-child(4) {
+				background: url(img/pic9.jpg) no-repeat;
+				transform: rotateY(90deg) translateZ(150px);
+			}
+			
+			.bigger li:nth-child(5) {
+				background: url(img/pic10.jpg) no-repeat;
+				transform: rotateY(-90deg) translateZ(150px);
+			}
+			
+			.bigger li:nth-child(6) {
+				background: url(img/pic11.jpg) no-repeat;
+				transform: rotateX(90deg) translateZ(150px);
+			}
+			
+			.bigger li:nth-child(7) {
+				background: url(img/pic12.jpg) no-repeat;
+				transform: rotateX(-90deg) translateZ(150px);
+			}
+			
+			.wrap:hover .bigger {
+				transform: rotateY(360deg);
+			}
+			
+			.wrap:hover .bigger li:nth-child(2) {
+				transform: translateZ(300px);
+			}
+			
+			.wrap:hover .bigger li:nth-child(3) {
+				transform: translateZ(-300px);
+			}
+			
+			.wrap:hover .bigger li:nth-child(4) {
+				transform: rotateY(90deg) translateZ(300px);
+			}
+			
+			.wrap:hover .bigger li:nth-child(5) {
+				transform: rotateY(-90deg) translateZ(300px);
+			}
+			
+			.wrap:hover .bigger li:nth-child(6) {
+				transform: rotateX(90deg) translateZ(300px);
+			}
+			
+			.wrap:hover .bigger li:nth-child(7) {
+				transform: rotateX(-90deg) translateZ(300px);
+			}
+			
+			@keyframes move {
+				0% {
+					transform: rotateY(0deg);
+				}
+				50% {
+					transform: rotateY(180deg);
+				}
+				100% {
+					transform: rotateY(360deg);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+
+			<ul class="bigger">
+				<ul class="small">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+
+		</div>
+	</body>
+
+</html>

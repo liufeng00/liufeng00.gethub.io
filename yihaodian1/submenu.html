@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab-JQ</title>
+    <style>
+        /** {margin: 0; padding: 0; list-style: none;}
+        #wrap {width: 600px; margin: 100px auto 0; overflow: hidden;}
+        #tit {height: 30px;width: 600px;}
+        #tit span {float: left; height: 30px; line-height: 30px; width: 200px; font-size: 20px; text-align: center; color: #ccc;background: green;}
+        #con li{display: none; height: 200px; width: 600px; background: pink;font-size: 100px;line-height: 200px;text-align: center;}
+        #tit span.select {background: red; color: #ccc;}
+        #con li.show {display: block;}*/
+    </style>
+    <script src='js/jquery-3.1.0.min.js'></script>
+</head>
+<body>
+    <div id="wrapper">
+  <!-- 这里是li-->
+   <ul id="nav-li">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+   </ul>
+  <!-- 这里是对应的div-->
+   <div id="content-wrpper">
+      <div>1内容</div>
+      <div>2内容</div>
+      <div>3内容</div>
+   </div>
+</div>
+    <script type="text/javascript" src="js/jquery-2.1.4.js" ></script>
+    <script type="text/javascript">
+    	window.onload = function(){
+            var navLi = document.getElementById("nav-li");
+            var navLiList = navLi.getElementsByTagName("li");
+            var contentDiv = document.getElementById("content-wrpper");
+            var contentDivList = contentDiv.getElementsByTagName("div");
+            var index;
+
+            for(var i=0; i<navLiList.length; i++){
+                 navLiList[i].index = i;
+                }
+        //采用事件代理
+        navLi.addEventListener("mouseover",function(e){
+
+           if(e.target.nodeName.toLowerCase() === "li"){
+               //添加index索引
+                  for(var j=0; j< contentDivList.length; j++){
+                          contentDivList[j].style.display = "none";
+                   }
+
+              contentDivList[e.target.index].style.display = "block";
+            }
+         
+        },false);
+
+    }
+
+    </script>
+</body>
+</html>
